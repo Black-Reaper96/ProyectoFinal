@@ -1,0 +1,302 @@
+@import url("https://fonts.googleapis.com/css?family=Aldrich");
+@import url("https://fonts.googleapis.com/css?family=Akronim");
+
+body{
+
+margin: 0%;
+padding: 0%;
+background-image: url("../imagenes/fondo.jpeg");
+background-size: cover;
+background-repeat: no-repeat;
+color: gainsboro;
+
+}
+header{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgba(86, 58, 165, 0.507);
+    margin-top: 0%;
+    font-family: Akronim;
+
+}
+
+footer{
+
+    width: 100%;
+    background-color: rgba(61, 0, 227, 0.507);
+    margin-bottom: 0%;
+    padding: 1em;
+    text-align: center;
+    font-family: Aldrich;
+
+}
+
+section{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: Aldrich;
+
+}
+
+article{
+    background-color: rgba(61, 0, 227, 0.507);
+    width: 70%;
+    margin: 4%;
+    padding: 5px;
+    border-radius: 8px;
+
+}
+
+aside{
+    background-color: rgba(143, 2, 219, 0.568);
+    width: 20%;
+    margin: 5%;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+div{
+    width: 100%;
+    background-color: #0B9AD9;
+}
+
+#btn-menu{
+    display: none;
+}
+
+div label{
+    display: none;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+}
+
+div span{
+    width: 100px;
+    height: 1500px;
+    padding: 10px;
+}
+
+div label:hover{
+    cursor: pointer;
+
+}
+
+nav ul{
+    margin: 0%;
+    margin-top: 10px;
+    list-style: none;
+    font-family: Aldrich;
+    padding: 0%;
+    display: flex;
+}
+
+nav li{
+    flex-grow: 1;
+    text-align: center;
+}
+
+a {
+    padding: 50px;
+    transition: transform .2s; /* Animation */
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+  }
+  
+  a:hover {
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+
+  #enlace {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    padding: 50px;
+    transition: transform .2s ; /* Animation */
+    width: 50px ;
+    height: 50px;
+    margin: 0 auto;
+  }
+  
+  #enlace:hover {
+    transform: scale(1.5) ; /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+nav li a{
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #fff;
+}
+.iniciarSesion{
+    width: max-content;
+}
+/*Calendario*/
+
+#calendar {
+    font-family:Arial;
+    font-size:12px;
+}
+
+#calendar caption {
+    text-align:left;
+    padding:5px 10px;
+    background-color:#003366;
+    color:#fff;
+    font-weight:bold;
+    font-size:medium;
+}
+
+#calendar caption div:nth-child(1) {
+    background-color:#003366;
+    float:left;
+}
+
+#calendar caption div:nth-child(2) {
+    background-color:#003366;
+    float:right;
+}
+
+#calendar caption div:nth-child(2) a {
+    /*background-color:#003366;*/
+    cursor:pointer;
+}
+
+#calendar th {
+    /*background-color:#006699;*/
+    
+    color:#fff;
+    width:40px;
+}
+
+#calendar td {
+    text-align:right;
+    padding:2px 5px;
+    background-color:#393939;
+}
+
+#calendar .hoy {
+    background-color:red;
+}
+
+#catalogo {
+    /* Para que se centre automaticamente*/
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid rgba(10, 10, 10, 0.925);
+    border-collapse: collapse;
+    border-spacing: 15px;
+    background-color: lightgrey !important;
+    color: black !important;
+}
+
+#catalogo td {
+    padding: 20px;
+    border: 2px solid rgb(1, 15, 1);
+}
+
+/*#catalogo tr {
+    
+    /*border: 3px solid rgb(1, 15, 1) !important; */
+    /*border: pink 7px dotted;*/
+/*}*/
+
+#catalogo th {
+    padding: 20px;
+    border: 2px solid black;
+    background: #f0f0f0;
+}
+
+@media (max-width:700px){
+    div label{
+        display: block;
+    }
+
+    nav{
+        position: absolute;
+        background-color:#393939;
+        width: 70%;
+        margin-left: -70%;
+    }
+
+    nav ul{
+        flex-direction: column;
+    }
+
+    a:hover{
+        color: #0B9AD9;
+    }
+    .iniciarSesion{
+        width: 50%;
+        margin-left: 4.5em;
+    }
+    #btn-menu:checked ~ nav {
+        margin: 0%;
+    }
+
+    section{
+        flex-direction: column;
+    }
+
+    article{
+        width: 90%;
+    }
+
+    aside{
+        width: 90%;
+    }
+    
+    #catalogo {
+        display: block;
+        overflow-x: auto;
+        width:100%;
+    }
+    #catalogo thead {
+        display: none;
+    }
+    #catalogo tr:nth-of-type(2n) {
+        background-color: inherit;
+    }
+
+    #catalogo tbody{
+        display: flex;
+        flex-direction: row;
+    }
+    #catalogo tbody td {
+        display: block;
+        text-align:center;
+    }
+    #catalogo tbody td:before {
+        content: attr(data-th);
+        display: block;
+        text-align:center;
+
+    }
+    #catalogo th{
+        background: #f0f0f0;
+        font-weight:bold;
+
+        padding: auto;
+    }
+    #catalogo tbody th {
+        display: block;
+        text-align:center;
+        
+    }
+    #catalogo tbody th:before {
+        content: attr(data-th);
+        display: block;
+        text-align:center;
+    }
+    .descripcion{
+        padding:1.85em!important ;
+    }
+    .precio{
+        padding:29.5px!important ;
+    }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Hojas de estilos-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/EstilosGeneral.css">
+        <link href='css/cssCarrousel.css' rel='stylesheet' />
+        <link rel="stylesheet" href="css/Login.css">
+
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>ARCADE:Tienda online</title>
+    </head>
+    <body>
+
+        <header>
+            <img src="imagenes/icono.png" alt="imagen del juego catan" width="150" height="150">
+            <titulo>
+                <h1>ARCADE</h1>
+                <h2>Tienda Online</h2>
+            </titulo>
+            <img src="imagenes/icono.png" alt="imagen del juego catan" width="150" height="150">
+        </header>
+
+        <div>
+            <input type="checkbox" id="btn-menu">
+            <label for="btn-menu"><span class="fas fa-bars"></span></label>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="php/catalogo_logout.php">Catalogo</a></li>
+                    <li><a href="registro.html">Registrarse</a></li>
+                    <li><a href="login.html" class="iniciarSesion">Iniciar sesion</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <section>
+
+            <article>
+                <h3>Bienvenido a nuestro portal de ocio</h3>
+                <div class="slider">
+                    <ul>
+                        <li>
+                            <img src="https://cdn02.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperMarioParty.jpg" alt="imagen del juego catan" width="10" height="500">
+                        </li>
+                        <li>
+                            <img src="https://www.educo.org/Educo/media/Imagenes/Blog/%C2%BFDebo-dejar-a-mis-hijos-jugar-con-Overwatch-portada-ok.jpg" alt="imagen tablero eldrich" width="10" height="500">
+                        </li>
+                        <li>
+                            <img src="https://as.com/meristation/imagenes/2020/03/23/noticias/1584948909_767999_1584949023_noticia_normal.jpg" alt="imagen juego jungle speed" width="10" height="500">
+                        </li>
+                        <li>
+                            <img src="https://i.blogs.es/003905/ps4/450_1000.jpg" alt="imagen juego la liga de la justicia" width="10" height="500">
+                        </li>
+                    </ul>
+                </div>
+            </article>
+
+
+            <aside>
+                <h1>Nuestro calendario</h1>
+                <table id="calendar">
+                    <caption></caption>
+                    <thead>
+                        <tr>
+                            <th>Lun</th><th>Mar</th><th>Mie</th><th>Jue</th><th>Vie</th><th>Sab</th><th>Dom</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </aside>
+        </section>
+        
+
+        <footer>
+            
+            <h2>Info Proyecto fin de ciclo:</h2>
+            <p>Nombre: Alejandro</p>
+            <p>Apellidos: Martin Martin</p>
+            <p>Centro: IES Ribera de Castilla</p>
+        
+        </footer>
+    </body>
+</html>
+<script src="js/calendar.js"></script>
