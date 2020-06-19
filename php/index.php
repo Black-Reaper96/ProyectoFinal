@@ -87,22 +87,33 @@ if (isset($_SESSION['logueado']))
 
             <article>
                 <h3>Bienvenido a nuestro portal de ocio <?php echo $_SESSION['logueado']; ?></h3>
-                <div class="slider">
-                    <ul>
-                        <li>
-                            <img src="https://cdn02.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperMarioParty.jpg" alt="imagen del juego catan" width="10" height="500">
-                        </li>
-                        <li>
-                            <img src="https://www.educo.org/Educo/media/Imagenes/Blog/%C2%BFDebo-dejar-a-mis-hijos-jugar-con-Overwatch-portada-ok.jpg" alt="imagen tablero eldrich" width="10" height="500">
-                        </li>
-                        <li>
-                            <img src="https://as.com/meristation/imagenes/2020/03/23/noticias/1584948909_767999_1584949023_noticia_normal.jpg" alt="imagen juego jungle speed" width="10" height="500">
-                        </li>
-                        <li>
-                            <img src="https://i.blogs.es/003905/ps4/450_1000.jpg" alt="imagen juego la liga de la justicia" width="10" height="500">
-                        </li>
-                    </ul>
-                </div>
+                <h3>Ranking</h3>
+                <?php
+                $dbConn =  connect($db);
+                
+                        
+                        $sql = $dbConn->prepare("SELECT * FROM ranking order by VENTAS_X_PROD desc");
+                        $sql->execute();
+                        $sql->setFetchMode(PDO::FETCH_ASSOC);
+                        header("HTTP/1.1 200 OK");
+                        $json=json_encode($sql->fetchAll());
+                        $array=json_decode($json, true);
+                        $c=1;
+                        echo '<table id="catalogo">
+                        <tbody>
+                            <tr>
+                                <th>Id</th><th class="descripcion">ID JUEGO</th>><th>Ventas x unidad</th>
+                            </tr>';
+                            foreach($array as $v){
+                                echo '<tr><td>'.$c.'</td>';
+                                echo '<td>'.$v['PRODUCTO_NO'] .'</td>';//nombre
+                                echo '<td>'.$v['VENTAS_X_PROD'] .'</td>';
+                                $c++;
+                            }
+                        echo '</tbody>
+                    </table>';
+                    
+                ?>
             </article>
 
 

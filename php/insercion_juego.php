@@ -43,22 +43,31 @@
                 if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 {
                 
-                    $sql = "INSERT INTO videojuego
-                    (PRODUCTO_NO, NOMBRE, DESCRIPCION, TIPO, PRECIO_ACTUAL, STOCK_DISPONIBLE)
-                    VALUES
-                    (:id, :nombre, :descripcion, :tipo, :precio, :stock)";
-                    $statement = $dbConn->prepare($sql);
-                    $result = $statement -> execute(array(":id" => $id ,":nombre" => $nombre , ":descripcion" => $descripcion ,":tipo" => $tipo , 
-                    ":precio" => $precio , ":stock" => $stock ));
-                    /*$statement->execute();*/
-                    //$postId = $dbConn->lastInsertId();
-                    if($result)
-                    {
-                                //$input['id'] = $postId;
-                                header("HTTP/1.1 200 OK");
-                                echo "Insercion Correcta";
-                                echo "<a href='insertar_juego.php'>Volver</a>";
-                                
+                    $sql = $dbConn->prepare("SELECT NOMBRE, PRODUCTO_NO FROM videojuego WHERE NOMBRE=:nombre OR PRODUCTO_NO=:id");
+                    $result = $sql -> execute(array(":nombre"=>$nombre, ":id"=>$id));
+                    header("HTTP/1.1 200 OK");
+                    $json=json_encode($sql->fetchAll());
+                    $array=json_decode($json, true);
+                    if($array){
+                        echo 'El juego ya existe';
+                    }else{
+                        $sql = "INSERT INTO videojuego
+                        (PRODUCTO_NO, NOMBRE, DESCRIPCION, TIPO, PRECIO_ACTUAL, STOCK_DISPONIBLE)
+                        VALUES
+                        (:id, :nombre, :descripcion, :tipo, :precio, :stock)";
+                        $statement = $dbConn->prepare($sql);
+                        $result = $statement -> execute(array(":id" => $id ,":nombre" => $nombre , ":descripcion" => $descripcion ,":tipo" => $tipo , 
+                        ":precio" => $precio , ":stock" => $stock ));
+                        /*$statement->execute();*/
+                        //$postId = $dbConn->lastInsertId();
+                        if($result)
+                        {
+                                    //$input['id'] = $postId;
+                                    header("HTTP/1.1 200 OK");
+                                    echo "Insercion Correcta";
+                                    echo "<a href='insertar_juego.php'>Volver</a>";
+                                    
+                        }
                     }
                 }
                 ?>

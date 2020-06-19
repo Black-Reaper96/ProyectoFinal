@@ -106,8 +106,15 @@
                                 WHERE PRODUCTO_NO=?";
                                 $statement = $dbConn->prepare($sql);
                                 $result = $statement -> execute(array($idJuego));
+                                
+                                $sql = "UPDATE ranking
+                                SET VENTAS_X_PROD=VENTAS_X_PROD+1
+                                WHERE PRODUCTO_NO=?";
+                                $statement = $dbConn->prepare($sql);
+                                $result = $statement -> execute(array($idJuego));
                                 echo "<script>alert('Producto Añadido');
                                         window.location= 'catalogo_login.php'</script>";
+                                
                                 
                             }else{
                                 echo'error a la hora de añadir';

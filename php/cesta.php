@@ -97,6 +97,12 @@
                                 WHERE PRODUCTO_NO=?";
                                 $statement = $dbConn->prepare($sql);
                                 $result = $statement -> execute(array($idJuego));
+
+                                $sql = "UPDATE ranking
+                                SET VENTAS_X_PROD=VENTAS_X_PROD-1
+                                WHERE PRODUCTO_NO=?";
+                                $statement = $dbConn->prepare($sql);
+                                $result = $statement -> execute(array($idJuego));
                                 echo "<script>alert('Producto Borrado de la cesta');
                                         window.location= 'cesta.php'</script>";
                                 
